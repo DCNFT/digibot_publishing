@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="container">
+        <h1>디지캡_챗봇 XD-BOT</h1>
         <div id="chatbox">
             <div class="chat-message bot-message">
                 <img src="img/profile.jpg" class="avatar bot-avatar" alt="Bot Avatar">
@@ -19,18 +20,27 @@
                         <button class="button" onclick="sendMessageFromButton('여비 문의')">여비 문의</button>
                         <button class="button" onclick="sendMessageFromButton('카페테리아 문의')">카페테리아 문의</button>
                         <button class="button" onclick="sendMessageFromButton('리조트 문의')">리조트 문의</button>
-                        <button class="button" onclick="sendMessageFromButton('그 외 문의')">그 외 문의</button>
                     </div>
                 </div>
             </div>
         </div>
         <form id="chat-form">
-            <input type="text" id="user-input" placeholder="메시지를 입력하세요...">
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="메시지를 입력하세요...">
+                <button id="toggleButtons" onclick="toggleHiddenButtons()">#</button>
+                <div id="hiddenButtons">
+                    <button class="hidden-button" onclick="sendMessageFromButton('경조금 문의')">경조금 문의</button>
+                    <button class="hidden-button" onclick="sendMessageFromButton('복지 및 포상 문의')">복지 및 포상 문의</button>
+                    <button class="hidden-button" onclick="sendMessageFromButton('여비 문의')">여비 문의</button>
+                    <button class="hidden-button" onclick="sendMessageFromButton('카페테리아 문의')">카페테리아 문의</button>
+                </div>
+            </div>
             <input type="submit" value="전송">
         </form>
     </div>
 
-    <script src="js/script.js"></script>
+    <button onclick="topFunction()" id="topBtn" title="Go to top">^</button>
 
+    <script src="js/script.js"></script>
 </body>
 </html>

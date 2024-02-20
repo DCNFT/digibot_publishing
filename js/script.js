@@ -1,9 +1,9 @@
 const form = document.getElementById('chat-form');
 const userInput = document.getElementById('user-input');
 const chatbox = document.getElementById('chatbox');
+const hiddenButtons = document.getElementById("hiddenButtons");
 let botBusy = false;
 
-// 사용자가 버튼을 클릭하여 메시지를 보낸 경우 처리하는 함수
 function sendMessageFromButton(buttonText) {
     if (botBusy) return;
     botBusy = true;
@@ -17,21 +17,19 @@ function sendMessageFromButton(buttonText) {
     });
 }
 
-// 버튼 클릭 시 질문 전송 함수를 직접 호출하여 메시지 보내기
 function sendQuestion(buttonText) {
     userInput.value = buttonText;
     sendMessageFromButton(buttonText);
 }
 
-
 form.addEventListener('submit', function(e) {
     e.preventDefault();
-    const message = userInput.value.trim(); // 사용자 입력 받기 및 양쪽 공백 제거
+    const message = userInput.value.trim(); 
     if (message !== '') {
         if (!botBusy) { 
             displayUserMessage(message);
             botBusy = true; 
-            displayBotMessage('어쩌구저쩌구 샬라샬라 어쩌구저쩌구 샬라샬라 어쩌구저쩌구 샬라샬라 감사합니다.', () => {
+            displayBotMessage('저는 잘 모르겠습니다 감사합니다.', () => {
                 botBusy = false; 
             }); 
             userInput.value = ''; 
@@ -80,4 +78,30 @@ function displayBotMessage(message, callback) {
             if (callback) callback(); 
         }
     }, 100); 
+}
+
+document.getElementById('chatbox').onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    var chatbox = document.getElementById('chatbox');
+    if (chatbox.scrollHeight - chatbox.clientHeight <= chatbox.scrollTop) {
+        document.getElementById("topBtn").style.display = "block";
+        chatbox.style.height = "calc(100% - 120px)"; // 수정된 부분
+    } else {
+        document.getElementById("topBtn").style.display = "none";
+        chatbox.style.height = "calc(100% - 60px)"; // 수정된 부분
+    }
+}
+
+function topFunction() {
+    var chatbox = document.getElementById('chatbox');
+    chatbox.scrollTop = 0;
+}
+
+function toggleHiddenButtons() {
+    if (hiddenButtons.style.display === "none") {
+        hiddenButtons.style.display = "block";
+    } else {
+        hiddenButtons.style.display = "none";
+    }
 }
