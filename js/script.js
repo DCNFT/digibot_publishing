@@ -80,26 +80,27 @@ function displayBotMessage(message, callback) {
     }, 100); 
 }
 
-document.getElementById('chatbox').onscroll = function() {scrollFunction()};
+// document.getElementById('chatbox').onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-    var chatbox = document.getElementById('chatbox');
-    if (chatbox.scrollHeight - chatbox.clientHeight <= chatbox.scrollTop) {
-        document.getElementById("topBtn").style.display = "block";
-        chatbox.style.height = "calc(100% - 120px)"; // 수정된 부분
-    } else {
-        document.getElementById("topBtn").style.display = "none";
-        chatbox.style.height = "calc(100% - 60px)"; // 수정된 부분
-    }
-}
+// function scrollFunction() {
+//     var chatbox = document.getElementById('chatbox');
+//     if (chatbox.scrollHeight - chatbox.clientHeight <= chatbox.scrollTop) {
+//         document.getElementById("topBtn").style.display = "block";
+//         chatbox.style.height = "calc(100% - 120px)";
+//     } else {
+//         document.getElementById("topBtn").style.display = "none";
+//         chatbox.style.height = "calc(100% - 60px)";
+//     }
+// }
 
-function topFunction() {
-    var chatbox = document.getElementById('chatbox');
-    chatbox.scrollTop = 0;
-}
+// function topFunction() {
+//     var chatbox = document.getElementById('chatbox');
+//     chatbox.scrollTop = 0;
+// }
 
 function toggleHiddenButtons() {
-    if (hiddenButtons.style.display === "none") {
+    var hiddenButtons = document.getElementById("hiddenButtons");
+    if (hiddenButtons.style.display === "none" || hiddenButtons.style.display === "") {
         hiddenButtons.style.display = "block";
     } else {
         hiddenButtons.style.display = "none";
