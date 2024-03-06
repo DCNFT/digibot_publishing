@@ -425,7 +425,6 @@ input[type='submit'] {
   font-size: 20px;
 }
 
-
 header .new-chat {
   cursor: pointer;
   align-items: center;
@@ -632,15 +631,10 @@ input::placeholder {
   transform:rotate(0);
 }
 
-.hr{
-  height:2px;
-  margin:0px 0 50px 0;
-  background:rgba(255,255,255,.2);
-}
 .forgot-password{
   text-align:center;
 }
-/* CSS */
+
 @media screen and (max-width: 768px) {
   header {
     width: 100%;
@@ -660,6 +654,9 @@ input::placeholder {
   nav.active + .main{
     display:none;
   }
+  nav > ul {
+    padding: 20px
+}
   .login-wrap {
     width: 100%;
     max-width: 100%;
@@ -668,9 +665,6 @@ input::placeholder {
     left: 0;
     transform: none;
     box-sizing: border-box;
-}
-.log-out {
-  bottom: 13%;
 }
 #chatbox {
   max-height: calc(100vh - 120px);

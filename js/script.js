@@ -23,15 +23,13 @@ function sendMessageFromButton(buttonText) {
             });
         }, 1000);
     });
-    hideHiddenButtons(); // 버튼 클릭 후 hiddenButtons 숨기기
+    hideHiddenButtons(); 
 }
 
-// hiddenButtons 숨기는 함수 추가
 function hideHiddenButtons() {
     hiddenButtons.style.display = 'none';
 }
 
-// hiddenButtons 보이는 함수 추가
 function showHiddenButtons() {
     hiddenButtons.style.display = 'block';
 }
@@ -54,7 +52,6 @@ document.querySelector('.show-options-btn').addEventListener('click', function()
     }
 });
 
-// document 클릭 시 hiddenButtons 숨기기
 document.addEventListener('click', function() {
     hideHiddenButtons();
 });
