@@ -23,7 +23,41 @@ function sendMessageFromButton(buttonText) {
             });
         }, 1000);
     });
+    hideHiddenButtons(); // 버튼 클릭 후 hiddenButtons 숨기기
 }
+
+// hiddenButtons 숨기는 함수 추가
+function hideHiddenButtons() {
+    hiddenButtons.style.display = 'none';
+}
+
+// hiddenButtons 보이는 함수 추가
+function showHiddenButtons() {
+    hiddenButtons.style.display = 'block';
+}
+
+const hiddenButtonElements = document.querySelectorAll('.hidden-button');
+hiddenButtonElements.forEach(button => {
+    button.addEventListener('click', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        const buttonText = this.textContent;
+        sendMessageFromButton(buttonText);
+    });
+});
+
+document.querySelector('.show-options-btn').addEventListener('click', function() {
+    if (hiddenButtons.style.display === 'block') {
+        hideHiddenButtons();
+    } else {
+        showHiddenButtons();
+    }
+});
+
+// document 클릭 시 hiddenButtons 숨기기
+document.addEventListener('click', function() {
+    hideHiddenButtons();
+});
 
 document.getElementById('send-button').addEventListener('click', function(event) {
     event.preventDefault();
@@ -103,77 +137,15 @@ function displayTime(messageElement, timeClass) {
     chatbox.scrollTop = chatbox.scrollHeight;
 }
 
-const hiddenButtonElements = document.querySelectorAll('.hidden-button');
-hiddenButtonElements.forEach(button => {
-    button.addEventListener('click', function(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        const buttonText = this.textContent;
-        sendMessageFromButton(buttonText);
-        hiddenButtons.style.display = 'none';
-    });
-});
+document.querySelector('.hamburger-menu').addEventListener('click', function() {
+    const nav = document.getElementById('nav');
+    const header = document.querySelector('header');
+    const main = document.querySelector('.main');
 
-document.getElementById('toggleButtons').addEventListener('click', function(event) {
-    event.preventDefault(); 
-    if (hiddenButtons.style.display === 'none' || hiddenButtons.style.display === '') {
-        hiddenButtons.style.display = 'block';
-    } else {
-        hiddenButtons.style.display = 'none';
-    }
-});
-
-function toggleSidebar() {
-    var sidebar = document.getElementById('sidebar');
-    var main = document.getElementById('main');
-    var header = document.querySelector('header');
-    var toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
-    var toggleTrigger = document.getElementById('trigger');
-    var toggleLabel = document.querySelector('label[for="trigger"]');
-    var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-    if (sidebar.classList.contains('active')) {
-        sidebar.classList.remove('active');
-        main.style.marginLeft = '0';
-        main.style.width = '100%';
-        header.style.width = '100%';
-        toggleTrigger.checked = false;
-        toggleLabel.querySelector('span:nth-child(1)').style.top = '0';
-        toggleLabel.querySelector('span:nth-child(2)').style.opacity = '1';
-        toggleLabel.querySelector('span:nth-child(3)').style.top = '100%';
-        if (viewportWidth > 768) { 
-            header.style.transform = 'translateX(0)';
-        }
-    } else {
-        sidebar.classList.add('active');
-        main.style.marginLeft = '400px';
-        main.style.width = 'calc(100% - 400px)';
-        if (viewportWidth > 768) { 
-            header.style.width = 'calc(100% - 400px)';
-            header.style.transform = 'translateX(400px)';
-        } else { 
-            header.style.width = '100%';
-            header.style.transform = 'translateX(0)';
-        }
-        toggleTrigger.checked = true;
-        toggleLabel.querySelector('span:nth-child(1)').style.top = '50%';
-        toggleLabel.querySelector('span:nth-child(2)').style.opacity = '0';
-        toggleLabel.querySelector('span:nth-child(3)').style.top = '50%';
-    }
-}
-
-document.addEventListener('click', function(event) {
-    var sidebar = document.getElementById('sidebar');
-    var toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
-    var toggleTrigger = document.getElementById('trigger');
-    var toggleLabel = document.querySelector('label[for="trigger"]');
-    if (sidebar.classList.contains('active') && !event.target.closest('#sidebar') && event.target !== toggleSidebarBtn && event.target !== toggleTrigger && event.target !== toggleLabel && event.target !== hiddenButtons) {
-        toggleSidebar();
-    }
-});
-
-document.getElementById('toggleSidebarBtn').addEventListener('click', function(event) {
-    event.stopPropagation();
-    toggleSidebar();
+    this.classList.toggle('active'); 
+    sidebar.classList.toggle('active');
+    header.classList.toggle('active');
+    main.classList.toggle('active');
 });
 
 document.querySelector('.new-chat').addEventListener('click', function() {
@@ -189,4 +161,3 @@ document.querySelector('.new-chat').addEventListener('click', function() {
     });
     this.blur();
 });
-
