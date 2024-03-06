@@ -125,7 +125,7 @@ document.getElementById('toggleButtons').addEventListener('click', function(even
 
 function toggleSidebar() {
     var sidebar = document.getElementById('sidebar');
-    var container = document.getElementById('container');
+    var main = document.getElementById('main');
     var header = document.querySelector('header');
     var toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
     var toggleTrigger = document.getElementById('trigger');
@@ -133,8 +133,8 @@ function toggleSidebar() {
     var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
     if (sidebar.classList.contains('active')) {
         sidebar.classList.remove('active');
-        container.style.marginLeft = '0';
-        container.style.width = '100%';
+        main.style.marginLeft = '0';
+        main.style.width = '100%';
         header.style.width = '100%';
         toggleTrigger.checked = false;
         toggleLabel.querySelector('span:nth-child(1)').style.top = '0';
@@ -145,8 +145,8 @@ function toggleSidebar() {
         }
     } else {
         sidebar.classList.add('active');
-        container.style.marginLeft = '400px';
-        container.style.width = 'calc(100% - 400px)';
+        main.style.marginLeft = '400px';
+        main.style.width = 'calc(100% - 400px)';
         if (viewportWidth > 768) { 
             header.style.width = 'calc(100% - 400px)';
             header.style.transform = 'translateX(400px)';
