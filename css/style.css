@@ -15,7 +15,8 @@
 *:before {
   box-sizing: border-box;
 }
-ul,li{
+ul,
+li {
   list-style-type: none;
 }
 
@@ -55,6 +56,9 @@ button {
   border: none;
 }
 
+#wrap {
+  height: 100dvh;
+}
 /* 스크롤 바 스타일 */
 #chatbox::-webkit-scrollbar {
   width: 8px;
@@ -74,10 +78,9 @@ button {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #ffffff; 
+  background-color: #ffffff;
   z-index: 999;
 }
-
 
 header {
   position: fixed;
@@ -90,7 +93,7 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 999;
-  background-color:#fff;
+  background-color: #fff;
 }
 header.active {
   transform: translateX(400px);
@@ -106,12 +109,11 @@ header h1 {
 
 .main {
   width: 100%;
-  margin-top: 140px;
-  margin-bottom: 70px;
-  min-height: calc(100vh - 150px);
+  top: 140px;
+  bottom: 70px;
+  min-height: calc(100vh - 140px);
   transition: transform 0.5s ease, width 0.5s ease;
-  position: relative; /* chat-form과의 상대 위치 설정 */
-
+  position: relative;
 }
 
 .input-container {
@@ -178,11 +180,11 @@ nav {
   bottom: 0;
   z-index: 999;
   border-right: 1px solid var(--grayscale-border);
-  background-color:#000;
-  color:#fff;
+  background-color: #000;
+  color: #fff;
 }
 
-nav.active{
+nav.active {
   width: 400px;
 }
 
@@ -202,7 +204,7 @@ nav.active + .main {
 }
 
 nav > ul {
-  padding:60px 20px;
+  padding: 60px 20px;
 }
 
 nav ul li {
@@ -299,10 +301,10 @@ nav ul li a:hover {
   width: 100%;
   padding: 12px;
   position: fixed;
-  top: 80px; 
+  top: 80px;
   left: 0;
   width: 100%;
-  height:60px;
+  height: 60px;
   background-color: #6a5acd;
   color: #ffffff;
   z-index: 998;
@@ -329,7 +331,6 @@ nav ul li a:hover {
   box-sizing: border-box;
   max-height: calc(100vh - 210px);
   padding: 20px;
-  
 }
 
 .chat-message {
@@ -337,7 +338,6 @@ nav ul li a:hover {
   max-width: fit-content;
   display: flex;
 }
-
 
 .message-content {
   border-radius: 5px;
@@ -525,9 +525,9 @@ header .new-chat {
 
 /*login*/
 input::placeholder {
-  opacity:35%;
+  opacity: 35%;
 }
-.login-wrap{
+.login-wrap {
   width: 100%;
   position: fixed;
   top: 50%;
@@ -536,36 +536,36 @@ input::placeholder {
   max-width: 525px;
   min-height: 670px;
 }
-.login-html{
-  width:100%;
-  height:100%;
-  position:absolute;
-  padding:90px 70px 50px 70px;
+.login-html {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 90px 70px 50px 70px;
 }
 
 .login-html .sign-in-htm,
-.login-html .sign-up-htm{
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  position:absolute;
-  transform:rotateY(180deg);
-  backface-visibility:hidden;
-  transition:all .4s linear;
+.login-html .sign-up-htm {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  transition: all 0.4s linear;
 }
-.login-html .sign-in-htm{
+.login-html .sign-in-htm {
   backface-visibility: visible;
   transform: rotateY(360deg);
 }
 .login-html .sign-in,
 .login-html .sign-up,
-.login-form .group .check{
-  display:none;
+.login-form .group .check {
+  display: none;
 }
 .login-html .tab,
 .login-form .group .label,
-.login-form .group .button{
+.login-form .group .button {
   /* text-transform:uppercase; */
   color: #fff;
   display: block;
@@ -573,110 +573,116 @@ input::placeholder {
   top: 0;
   left: 0;
 }
-.login-html .tab{
-  font-size:22px;
-  margin-right:15px;
-  padding-bottom:5px;
-  margin:0 15px 10px 0;
-  display:inline-block;
-  border-bottom:2px solid transparent;
+.login-html .tab {
+  font-size: 22px;
+  margin-right: 15px;
+  padding-bottom: 5px;
+  margin: 0 15px 10px 0;
+  display: inline-block;
+  border-bottom: 2px solid transparent;
 }
 .login-html .sign-in:checked + .tab,
-.login-html .sign-up:checked + .tab{
-  color:#000;
-  border-color:#6a5acd;
+.login-html .sign-up:checked + .tab {
+  color: #000;
+  border-color: #6a5acd;
 }
-.login-form{
-  min-height:345px;
-  position:relative;
-  perspective:1000px;
-  transform-style:preserve-3d;
+.login-form {
+  min-height: 345px;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
 }
-.login-form .group{
-  margin-bottom:15px;
+.login-form .group {
+  margin-bottom: 15px;
 }
 .login-form .group .label,
 .login-form .group .input,
-.login-form .group .button{
-  width:100%;
-  color:#6a5acd;
-  display:block;
+.login-form .group .button {
+  width: 100%;
+  color: #6a5acd;
+  display: block;
 }
 .login-form .group .input,
-.login-form .group .button{
-  border:none;
-  padding:15px 20px;
-  border-radius:25px;
-  background:rgba(255,255,255,.1);
+.login-form .group .button {
+  border: none;
+  padding: 15px 20px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
   height: auto;
   margin-top: 10px;
-  border:1px solid #6a5acd;
+  border: 1px solid #6a5acd;
 }
-.login-form .group input[data-type="password"]{
-  text-security:circle;
-  -webkit-text-security:circle;
+.login-form .group input[data-type='password'] {
+  text-security: circle;
+  -webkit-text-security: circle;
 }
-.login-form .group .label{
-  color:#aaa;
-  font-size:12px;
+.login-form .group .label {
+  color: #aaa;
+  font-size: 12px;
 }
-.login-form .group .button{
-  background:#6a5acd;
-  color:#fff;
+.login-form .group .button {
+  background: #6a5acd;
+  color: #fff;
 }
-.login-form .group label .icon{
-  width:15px;
-  height:15px;
-  border-radius:2px;
-  position:relative;
-  display:inline-block;
- border:1px solid #6a5acd;
- top: 3px;
-    margin-right: 5px;
-}
-.login-form .group label .icon:before,
-.login-form .group label .icon:after{
-  content:'';
-  width:10px;
-  height:2px;
-  background:#fff;
-  position:absolute;
-  transition:all .2s ease-in-out 0s;
-}
-.login-form .group label .icon:before{
-  left: 2px;
-  width: 5px;
-  bottom: 4px;
-  transform:scale(0) rotate(0);
-}
-.login-form .group label .icon:after{
-  top:6px;
-  right:0;
-  transform:scale(0) rotate(0);
-}
-.login-form .group .check:checked + label{
-  color:#000;
-}
-.login-form .group .check:checked + label .icon{
-  background:#6a5acd;
+.login-form .group label .icon {
+  width: 15px;
+  height: 15px;
+  border-radius: 2px;
+  position: relative;
+  display: inline-block;
+  border: 1px solid #6a5acd;
   top: 3px;
   margin-right: 5px;
 }
-.login-form .group .check:checked + label .icon:before{
-  transform:scale(1) rotate(45deg);
+.login-form .group label .icon:before,
+.login-form .group label .icon:after {
+  content: '';
+  width: 10px;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  transition: all 0.2s ease-in-out 0s;
 }
-.login-form .group .check:checked + label .icon:after{
-  transform:scale(1) rotate(-45deg);
+.login-form .group label .icon:before {
+  left: 2px;
+  width: 5px;
+  bottom: 4px;
+  transform: scale(0) rotate(0);
 }
-.login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
-  transform:rotate(0);
+.login-form .group label .icon:after {
+  top: 6px;
+  right: 0;
+  transform: scale(0) rotate(0);
 }
-.login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
-  transform:rotate(0);
+.login-form .group .check:checked + label {
+  color: #000;
+}
+.login-form .group .check:checked + label .icon {
+  background: #6a5acd;
+  top: 3px;
+  margin-right: 5px;
+}
+.login-form .group .check:checked + label .icon:before {
+  transform: scale(1) rotate(45deg);
+}
+.login-form .group .check:checked + label .icon:after {
+  transform: scale(1) rotate(-45deg);
+}
+.login-html
+  .sign-in:checked
+  + .tab
+  + .sign-up
+  + .tab
+  + .login-form
+  .sign-in-htm {
+  transform: rotate(0);
+}
+.login-html .sign-up:checked + .tab + .login-form .sign-up-htm {
+  transform: rotate(0);
 }
 
-.forgot-password{
-  text-align:center;
+.forgot-password {
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {
@@ -687,15 +693,15 @@ input::placeholder {
     left: 0;
     z-index: 999;
   }
-  nav{
-    margin-top:80px;
+  nav {
+    margin-top: 80px;
   }
-  header.active{
+  header.active {
     transform: none;
     width: 100%;
   }
-  nav.active{
-    width:100%;
+  nav.active {
+    width: 100%;
     margin-top: 80px;
   }
   /* nav.active + .main{
@@ -703,8 +709,8 @@ input::placeholder {
   } */
 
   nav > ul {
-    padding: 20px
-}
+    padding: 20px;
+  }
   .login-wrap {
     width: 100%;
     max-width: 100%;
@@ -713,25 +719,25 @@ input::placeholder {
     left: 0;
     transform: none;
     box-sizing: border-box;
-}
-#chatbox {
-  max-height: calc(100vh - 120px);
-  background-color: #fff;
-}
-.chat-form {
-  width: 100%;
-}
-.bot-message {
-  width: 100%;
-  margin-left: 0;
-}
-.user-message {
-  margin-right: 0;
-}
-.main h1 {
-  border-bottom: 1px solid #b3b3b3;
-  margin-bottom: 10px;
-}
+  }
+  #chatbox {
+    max-height: calc(100vh - 120px);
+    background-color: #fff;
+  }
+  .chat-form {
+    width: 100%;
+  }
+  .bot-message {
+    width: 100%;
+    margin-left: 0;
+  }
+  .user-message {
+    margin-right: 0;
+  }
+  .main h1 {
+    border-bottom: 1px solid #b3b3b3;
+    margin-bottom: 10px;
+  }
 }
 @media screen and (max-width: 486px) {
   .hidden-button {
@@ -769,18 +775,5 @@ input::placeholder {
   }
   .hidden-button {
     font-size: 2.4vw;
-  }
-}
-
-/* Safari의 Safe Area 조정 */
-@media screen and (constant) and (-webkit-min-device-pixel-ratio:0) { /* Safari 전용 CSS */
-  /* iPhone X, XR, XS, 11 등의 모델들 */
-  @supports(padding: constant(safe-area-inset-bottom)) {
-    .main {
-      margin-bottom: calc(70px + constant(safe-area-inset-bottom)); /* Safe Area 고려하여 여백 추가 */
-    }
-    #chat-form {
-      margin-bottom: constant(safe-area-inset-bottom); /* Safe Area 고려하여 chat-form의 마진 추가 */
-    }
   }
 }
