@@ -138,12 +138,15 @@ document.querySelector('.hamburger-menu').addEventListener('click', function() {
     const nav = document.getElementById('nav');
     const header = document.querySelector('header');
     const main = document.querySelector('.main');
+    const subPost = document.querySelector('.sub-post');
 
     this.classList.toggle('active'); 
     sidebar.classList.toggle('active');
     header.classList.toggle('active');
     main.classList.toggle('active');
+    subPost.classList.toggle('active');
 });
+
 
 document.querySelector('.new-chat').addEventListener('click', function() {
     const chatMessages = document.querySelectorAll('#chatbox .chat-message');
@@ -158,3 +161,5 @@ document.querySelector('.new-chat').addEventListener('click', function() {
     });
     this.blur();
 });
+
+
