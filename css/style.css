@@ -296,9 +296,6 @@ nav ul li a:hover {
   display: flex;
 }
 
-.message-container {
-  margin-bottom: 20px;
-}
 
 .message-content {
   border-radius: 5px;
@@ -357,7 +354,6 @@ input[type='submit'] {
 
 .bot-avatar {
   float: right;
-  margin-left: 10px;
   margin-right: 10px;
 }
 
@@ -378,7 +374,6 @@ input[type='submit'] {
   text-align: left;
   border-radius: 5px;
   margin-right: auto;
-  margin-bottom: 20px;
 }
 
 .button-container {
@@ -466,8 +461,7 @@ header .new-chat {
   display: block;
   font-size: 12px;
   color: #888;
-  margin-top: 4px;
-  margin-left: 60px;
+  margin: 5px 50px 20px;
 }
 
 .user-message-time {
@@ -475,8 +469,7 @@ header .new-chat {
   display: block;
   font-size: 12px;
   color: #888;
-  margin-top: 4px;
-  margin-right: 60px;
+  margin: 5px 50px 20px;
 }
 
 /*login*/
@@ -643,6 +636,9 @@ input::placeholder {
     left: 0;
     z-index: 999;
   }
+  nav{
+    margin-top:80px;
+  }
   header.active{
     transform: none;
     width: 100%;
@@ -669,7 +665,6 @@ input::placeholder {
 #chatbox {
   max-height: calc(100vh - 120px);
   background-color: #fff;
-  padding: 0;
 }
 .chat-form {
   width: 100%;
