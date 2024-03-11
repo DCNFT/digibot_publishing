@@ -514,7 +514,7 @@ header .new-chat {
   left: 0; */
   width: 100%;
   background-color: #fff;
-  z-index: 1000; /* 다른 요소 위에 레이어를 보여주기 위한 z-index 값 */
+  z-index: 1000;
   box-sizing: border-box;
 }
 
