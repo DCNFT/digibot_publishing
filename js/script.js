@@ -44,7 +44,8 @@ hiddenButtonElements.forEach(button => {
     });
 });
 
-document.querySelector('.show-options-btn').addEventListener('click', function() {
+document.querySelector('.show-options-btn').addEventListener('click', function(event) {
+    event.stopPropagation();
     if (hiddenButtons.style.display === 'block') {
         hideHiddenButtons();
     } else {
@@ -65,30 +66,6 @@ document.getElementById('send-button').addEventListener('click', function(event)
     }
 });
 
-// userInput.addEventListener('keydown', function(event) {
-//     if (event.key === 'Enter') {
-//         if (event.ctrlKey) {
-//             event.preventDefault();
-//             const cursorPos = this.selectionStart;
-//             const value = this.value;
-//             const before = value.substring(0, cursorPos);
-//             const after = value.substring(cursorPos);
-//             this.value = before + "\n" + after;
-//             this.selectionStart = cursorPos + 1;
-//             this.selectionEnd = cursorPos + 1;
-//         } else {
-//             event.preventDefault();
-//             const message = userInput.value.trim();
-//             if (message !== '') {
-//                 sendMessage(message); 
-//                 userInput.value = ''; 
-//             }
-//         }
-//     }
-// });
-
-
-
 function displayUserMessage(message) {
     const div = document.createElement('div');
     div.classList.add('chat-message', 'user-message');
@@ -96,7 +73,7 @@ function displayUserMessage(message) {
     messageContent.classList.add('message-content');
     messageContent.textContent = message;
     const avatar = document.createElement('img');
-    avatar.src = 'img/profile.jpg';
+    avatar.src = 'images/profile.jpg';
     avatar.classList.add('avatar', 'user-avatar');
     div.appendChild(messageContent);
     div.appendChild(avatar);
@@ -109,7 +86,7 @@ function displayBotMessage(message, callback) {
     const div = document.createElement('div');
     div.classList.add('chat-message', 'bot-message');
     const avatar = document.createElement('img');
-    avatar.src = 'img/profile.jpg'; 
+    avatar.src = 'images/profile.jpg'; 
     avatar.classList.add('avatar', 'bot-avatar');
     div.appendChild(avatar);
     const messageContent = document.createElement('div');
@@ -147,7 +124,8 @@ function displayTime(messageElement, timeClass) {
     chatbox.scrollTop = chatbox.scrollHeight;
 }
 
-document.querySelector('.hamburger-menu').addEventListener('click', function() {
+document.querySelector('.hamburger-menu').addEventListener('click', function(event) {
+    event.stopPropagation();
     const nav = document.getElementById('nav');
     const header = document.querySelector('header');
     const main = document.querySelector('.main');
@@ -159,7 +137,6 @@ document.querySelector('.hamburger-menu').addEventListener('click', function() {
     main.classList.toggle('active');
     subPost.classList.toggle('active');
 });
-
 
 document.querySelector('.new-chat').addEventListener('click', function() {
     const chatMessages = document.querySelectorAll('#chatbox .chat-message');
@@ -175,4 +152,37 @@ document.querySelector('.new-chat').addEventListener('click', function() {
     this.blur();
 });
 
+
+userInput.addEventListener('input', function() {
+    this.style.height = 'auto';
+    const maxHeight = 204;
+    if (this.scrollHeight <= maxHeight) {
+        this.style.height = (this.scrollHeight + 2) + 'px';
+    } else {
+        this.style.height = maxHeight + 'px';
+        this.style.overflowY = 'auto';
+    }
+});
+
+
+userInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        if (event.ctrlKey) {
+            event.preventDefault();
+            const cursorPos = this.selectionStart;
+            const value = this.value;
+            const before = value.substring(0, cursorPos);
+            const after = value.substring(cursorPos);
+            this.value = before + "\n" + after;
+            this.selectionStart = cursorPos + 1;
+            this.selectionEnd = cursorPos + 1;
+        } else {
+            const message = userInput.value.trim();
+            if (message !== '') {
+                sendMessage(message);
+                userInput.value = '';
+            }
+        }
+    }
+});
 

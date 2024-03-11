@@ -60,9 +60,6 @@ button {
   height: 100dvh;
 }
 /* 스크롤 바 스타일 */
-#chatbox::-webkit-scrollbar {
-  width: 8px;
-}
 
 #chatbox::-webkit-scrollbar-thumb {
   height: 30%;
@@ -122,22 +119,23 @@ header h1 {
   position: relative;
 }
 
-.input-container {
-  position: relative;
-}
-
 .send_btn {
+  width: 70px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 10px;
+  height: auto;
   float: right;
   right: 0;
-  background-image: url(/images/send.png);
+  background-image: url(../images/send.png);
   background-size: 30px contain;
   background-size: 30px;
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
-  background-color: rgb(243, 244, 246);
+  background-color:#fff;
 }
-
 .hamburger-menu {
   width: 25px;
   height: 15px;
@@ -384,22 +382,27 @@ nav ul li a:hover {
   padding: 10px;
 }
 
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius:30px;
+}
+
 textarea {
   width: calc(100% - 140px);
-  height: 70px;
   padding: 10px;
   border: none;
   outline: none;
-  background: rgb(243, 244, 246);
+  /* background: rgb(243, 244, 246); */
   margin-left:70px;
   resize: none;
-}
-textarea::placeholder {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  line-height: inherit;
+  height: auto;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
   font-weight:500;
   font-family: 'Quicksand', sans-serif;
 }
@@ -411,7 +414,6 @@ input[type='submit'] {
   font-weight: 600;
   padding: 10px;
   position: absolute;
-  height: 70px;
   border-left: 1px solid rgb(229, 230, 231);
 }
 
@@ -477,11 +479,9 @@ input[type='submit'] {
 
 .show-options-btn {
   width: 70px;
-  height: 70px;
+  height: auto;
   position: absolute;
   left: 0;
-  top: 0;
-  background: rgb(243, 244, 246);
   color: #6a5acd;
   border-left: none;
   border-top: none;
@@ -500,22 +500,19 @@ header .new-chat {
   margin-right: 30px;
 }
 
-.input-container {
-  position: relative;
-}
 
 /* #chat-form {
   position: relative;
   margin-bottom: 0;
 } */
 #chat-form {
-  /* position: fixed;
-  bottom: 0;
-  left: 0; */
   width: 100%;
   background-color: #fff;
   z-index: 1000;
-  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding:20px;
 }
 
 .hidden-button {
