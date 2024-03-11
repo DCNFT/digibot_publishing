@@ -194,6 +194,21 @@ nav.active {
   width: 400px;
 }
 
+nav.active li {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+nav:not(.active) li {
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+nav li {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
 nav button {
   float: right;
   position: relative;
@@ -710,24 +725,40 @@ input::placeholder {
     left: 0;
     z-index: 999;
   }
+
   nav {
     margin-top: 56px;
   }
+
   header.active {
     transform: none;
     width: 100%;
   }
+  .sub-post.active {
+    transform: none;
+    width: 100%;
+}
   nav.active {
     width: 100%;
     margin-top: 56px;
   }
-  /* nav.active + .main{
-    display:none;
-  } */
+
+  .main {
+    width: 100%;
+    transform: translateX(0);
+  }
+
+  nav.active + header,
+  nav.active + .main,
+  nav.active + .sub-post {
+    transform: translateX(0);
+    width: 100%;
+  }
 
   nav > ul {
     padding: 20px;
   }
+
   .login-wrap {
     width: 100%;
     max-width: 100%;
@@ -737,27 +768,32 @@ input::placeholder {
     transform: none;
     box-sizing: border-box;
   }
+
   #chatbox {
     height: 100%;
     flex: 1 1 0%;
-    /* max-height: calc(100vh - 120px); */
     background-color: #fff;
   }
+
   .chat-form {
     width: 100%;
   }
+
   .bot-message {
     width: 100%;
     margin-left: 0;
   }
+
   .user-message {
     margin-right: 0;
   }
+
   .main h1 {
     border-bottom: 1px solid #b3b3b3;
     margin-bottom: 10px;
   }
 }
+
 @media screen and (max-width: 486px) {
   .hidden-button {
     font-size: 2.8vw;
