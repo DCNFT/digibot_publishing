@@ -65,16 +65,29 @@ document.getElementById('send-button').addEventListener('click', function(event)
     }
 });
 
-userInput.addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-        event.preventDefault(); 
-        const message = userInput.value.trim();
-        if (message !== '') {
-            sendMessage(message); 
-            userInput.value = ''; 
-        }
-    }
-});
+// userInput.addEventListener('keydown', function(event) {
+//     if (event.key === 'Enter') {
+//         if (event.ctrlKey) {
+//             event.preventDefault();
+//             const cursorPos = this.selectionStart;
+//             const value = this.value;
+//             const before = value.substring(0, cursorPos);
+//             const after = value.substring(cursorPos);
+//             this.value = before + "\n" + after;
+//             this.selectionStart = cursorPos + 1;
+//             this.selectionEnd = cursorPos + 1;
+//         } else {
+//             event.preventDefault();
+//             const message = userInput.value.trim();
+//             if (message !== '') {
+//                 sendMessage(message); 
+//                 userInput.value = ''; 
+//             }
+//         }
+//     }
+// });
+
+
 
 function displayUserMessage(message) {
     const div = document.createElement('div');
