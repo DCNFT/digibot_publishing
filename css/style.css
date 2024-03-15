@@ -1,3 +1,5 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
+
 * {
   font-size: 14px;
   font-weight: 400;
@@ -74,7 +76,7 @@ button {
   /* position: fixed; */
   /* top: 0;
   left: 0; */
-  height: 116px;
+  height: 56px;
   width: 100%;
   background-color: #ffffff;
   z-index: 999;
@@ -92,6 +94,7 @@ header {
   align-items: center;
   z-index: 999;
   background-color: #fff;
+  border-bottom: 1px solid #ccc;
 }
 header.active {
   transform: translateX(400px);
@@ -110,13 +113,31 @@ header h1 {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: calc(100% - 116px);
+  height: calc(100% - 56px);
   /* top: 140px; */
   /* bottom: 70px; */
   /* min-height: calc(100vh - 140px); */
 
   transition: transform 0.5s ease, width 0.5s ease;
   position: relative;
+}
+.box-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px 70px;
+}
+
+.box {
+  width: 45%;
+  margin-bottom: 20px;
+  height: 50px;
+  border:1px solid #000;
+  border-radius:50px;
+  margin: 10px;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
 }
 
 .send_btn {
@@ -184,7 +205,7 @@ nav {
   bottom: 0;
   z-index: 999;
   border-right: 1px solid var(--grayscale-border);
-  background-color: #000;
+  background-color: #2d3439;
   color: #fff;
 }
 
@@ -348,12 +369,24 @@ nav ul li a:hover {
   /* bottom: 0;
   left: 0; */
   width: 100%;
-  background-color: #fff;
   box-sizing: border-box;
   /* max-height: calc(100vh - 210px); */
   padding: 20px;
 }
+.center_logo {
+  text-align: center;
+}
 
+.center_logo img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 0px;
+}
+
+.center_logo p {
+  font-size: 18px;
+  color: #333;
+}
 .chat-message {
   margin-bottom: 3px;
   max-width: fit-content;
@@ -363,13 +396,13 @@ nav ul li a:hover {
 .message-content {
   border-radius: 5px;
   padding: 10px;
-  background-color: #6a5acd;
-  color: #fff;
+  background-color: #f3f4f6;
+  color: #000;
 }
 
 .bot-message .message-content {
-  background-color: #f3f4f6;
-  color: rgb(51, 54, 86);
+  background-color: #5aaadc;
+  color: #fff;
   border-radius: 5px;
   padding: 10px;
   margin-right: 60px;
@@ -390,23 +423,84 @@ nav ul li a:hover {
   border: 1px solid rgba(0, 0, 0, .15);
   border-radius:30px;
 }
-
-textarea {
-  width: calc(100% - 140px);
+textarea::-webkit-scrollbar {
+  width: 0;
+}
+/* textarea#user-input {
+  flex: 1;
   padding: 10px;
+  resize: vertical;
+  background:none;
   border: none;
-  outline: none;
-  /* background: rgb(243, 244, 246); */
-  margin-left:70px;
-  resize: none;
-  height: auto;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #ccc transparent;
+  border-top: 1px solid #ccc;
   font-weight:500;
   font-family: 'Quicksand', sans-serif;
 }
+.icons {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
 
+.icons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #000;
+} */
+textarea {
+  min-height: 20px;
+  max-height: 204px;
+  width: calc(100% - 20px);
+  margin-bottom: 60px;
+  border: none;
+  border-top: 1px solid #888;
+  width: 100%;
+  padding:10px;
+  font-weight:500;
+}
+
+.icons {
+  display: flex;
+  position: fixed; 
+  bottom: 15px;
+  left: 10px;
+  z-index: 999; 
+}
+
+.icons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #000;
+}
+
+.send-icon {
+  position: fixed;
+  bottom: 15px;
+  right: 10px;
+  z-index: 999;
+}
+
+.send-icon button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+}
+.icons button i {
+  font-size: 20px;
+  margin-left:10px;
+}
+.send-icon i{
+  font-size:20px;
+  margin-right:10px;
+}
+.icons button:hover {
+  color: #333;
+}
 input[type='submit'] {
   width: 70px;
   border: none;
@@ -499,20 +593,28 @@ header .new-chat {
   align-items: center;
   margin-right: 30px;
 }
-
+.new-chat i{
+  font-size:20px;
+}
 
 /* #chat-form {
   position: relative;
   margin-bottom: 0;
 } */
-#chat-form {
-  width: 100%;
-  background-color: #fff;
-  z-index: 1000;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  padding:20px;
+.chat-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.below-message-buttons {
+  display: none; 
+}
+
+.below-message-button {
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 30px;
 }
 
 .hidden-button {
@@ -531,12 +633,8 @@ header .new-chat {
   font-size: 10.5pt;
   border: 1px solid #e0e1e2;
   margin: 5px;
+  border:none;
 }
-
-.hidden-button:hover {
-  background-color: #ccc;
-}
-
 .bot-message-time {
   display: block;
   font-size: 12px;
@@ -713,6 +811,89 @@ input::placeholder {
 .forgot-password {
   text-align: center;
 }
+.dark-mode-toggle {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+ background-image: url(../images/dark_mode.png);
+ border-radius: 50%;
+ background-size: 100%;
+ cursor: pointer;
+ background-repeat: no-repeat;
+}
+
+.dark-mode-toggle:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+/* 다크 모드일 때 아이콘 색상 변경 */
+.dark-mode {
+  background-color: #111729;
+  color: #fff;
+}
+.dark-mode p{
+  color:#fff;
+}
+.dark-mode header {
+  background-color: #222;
+  color:#fff;
+}
+.dark-mode .main {
+  background-color: #222;
+}
+.dark-mode .box {
+ border:1px solid #fff;
+}
+.dark-mode .message-content{
+  background-color:#5aaadc;
+  color:#fff;
+}
+.dark-mode .user-message .message-content{
+  background-color: #5b6371;
+}
+.dark-mode form{
+  border-top:1px solid #fff;
+}
+.dark-mode textarea{
+  border-top: 1px solid #fff;
+  color:#fff;
+   background:none;
+}
+.dark-mode textarea::placeholder{
+  color:#fff;
+}
+.dark-mode .hidden-button{
+  background:none;
+  color:#fff;
+}
+.dark-mode .below-message-button{
+  color:#fff;
+}
+.dark-mode .line{
+  background-color:#fff;
+}
+.dark-mode-toggle.dark-mode:before {
+  background-color: #fff;
+}
+.dark-mode .new-chat i{
+  color:#fff;
+}
+.dark-mode .icons button i {
+  color: #fff;
+}
+.dark-mode .send-icon i{
+  color:#fff;
+}
 
 @media screen and (max-width: 768px) {
   header {
@@ -769,9 +950,10 @@ input::placeholder {
   #chatbox {
     height: 100%;
     flex: 1 1 0%;
-    background-color: #fff;
   }
-
+  .box{
+    width:100%;
+  }
   .chat-form {
     width: 100%;
   }
@@ -807,7 +989,6 @@ input::placeholder {
   }
   #chatbox {
     /* max-height: calc(100vh - 120px); */
-    background-color: #fff;
     padding: 0;
   }
   .bot-message {
