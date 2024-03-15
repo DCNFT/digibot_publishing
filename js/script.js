@@ -70,9 +70,7 @@ function sendMessageFromButton(buttonText) {
     hideCenterLogoAndBoxContainer();
     displayUserMessage(buttonText);
     displayBotMessage(`${buttonText}에 대한 질문을 주셨군요!`, () => {
-        // 이 부분에 버튼을 표시하도록 변경합니다.
         displayBelowMessageButtons();
-        // 버튼 표시 후에 비동기 작업이 완료되었으므로 botBusy를 false로 설정합니다.
         botBusy = false;
     });
 }
