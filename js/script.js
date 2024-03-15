@@ -157,6 +157,18 @@ function displayTime(messageElement, timeClass) {
     chatbox.scrollTop = chatbox.scrollHeight;
 }
 
+userInput.addEventListener('input', function() {
+    this.style.height = 'auto';
+    const minHeight = 50;
+    const maxHeight = 204; 
+    if (this.scrollHeight <= maxHeight) {
+        this.style.height = Math.max(minHeight, this.scrollHeight) + 'px';
+    } else {
+        this.style.height = maxHeight + 'px';
+        this.style.overflowY = 'auto';
+    }
+});
+
 document.querySelector('.hamburger-menu').addEventListener('click', function(event) {
     event.stopPropagation();
     const nav = document.getElementById('nav');
